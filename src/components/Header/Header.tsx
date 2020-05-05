@@ -1,9 +1,11 @@
 import React from 'react';
 
+import { StyledHeader } from './styled';
+
 export const Header = () => {
     return (
-        <header>
-            <h1>Your header</h1>
-        </header>
+        <StyledHeader>
+            <h1>Names List App</h1>
+        </StyledHeader>
     );
 };

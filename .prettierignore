@@ -1,0 +1,7 @@
+.idea/
+node_modules/
+package.json
+build/\*
+public/\*
+src/react-app-env.d.ts
+src/serviceWorker.ts

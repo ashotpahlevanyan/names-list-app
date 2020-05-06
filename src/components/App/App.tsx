@@ -11,37 +11,31 @@ import { useAppHook } from './useAppHook';
 import { namesList as initialState } from '../../data/data';
 
 export const App = () => {
-    const {
-        noNamesMessage,
-        allDuplicatesMessage,
-        names,
-        prev,
-        next,
-        isAllDuplicate,
-        handleNameCreate,
-        handleNameRemove,
-        handlePick
-    } = useAppHook(initialState);
+  const {
+    noNamesMessage,
+    allDuplicatesMessage,
+    names,
+    prev,
+    next,
+    isAllDuplicate,
+    handleNameCreate,
+    handleNameRemove,
+    handlePick,
+  } = useAppHook(initialState);
 
-    return (
-      <Container maxWidth="lg">
-          <Paper elevation={3}>
-              <Header />
-              <Picker handlePickClick={handlePick} previous={prev} next={next}/>
-              <NameForm
-                  names={names}
-                  handleNameCreate={handleNameCreate}
-                  />
-              {
-                  isAllDuplicate ? <Message {...allDuplicatesMessage} /> : null
-              }
-              {
-                  names.length > 0 ?
-                  <List names={names} handleNameRemove={handleNameRemove}/>
-                  :
-                  <Message {...noNamesMessage} />
-              }
-          </Paper>
-      </Container>
-    );
+  return (
+    <Container maxWidth="lg">
+      <Paper elevation={3}>
+        <Header />
+        <Picker handlePickClick={handlePick} previous={prev} next={next} />
+        <NameForm names={names} handleNameCreate={handleNameCreate} />
+        {isAllDuplicate ? <Message {...allDuplicatesMessage} /> : null}
+        {names.length > 0 ? (
+          <List names={names} handleNameRemove={handleNameRemove} />
+        ) : (
+          <Message {...noNamesMessage} />
+        )}
+      </Paper>
+    </Container>
+  );
 };
